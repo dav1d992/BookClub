@@ -1,5 +1,5 @@
 .app-container {
-  @apply min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300;
+  @apply min-h-screen bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 transition-colors duration-300;
 }
 
 .app-header {
@@ -8,12 +8,4 @@
 
 .app-title {
   @apply text-2xl font-bold;
-}
-
-.dark-mode-toggle {
-  @apply bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 p-2 rounded;
-}
-
-.app-main {
-  @apply p-4;
 }
