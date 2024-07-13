@@ -30,7 +30,7 @@ jobs:
 
     - name: Commit and Push Dist Changes
       env:
-        KEY_BOOK_CLUB: ${{ secrets.KEY_BOOK_CLUB }}
+        PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
       run: |
         git config --local user.email "dav@danskecommodities.com"
         git config --local user.name "Deployment David"
