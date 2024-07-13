@@ -29,9 +29,11 @@ jobs:
         rm -rf dist/*
 
     - name: Commit and Push Dist Changes
+      env:
+        KEY_BOOK_CLUB: ${{ secrets.KEY_BOOK_CLUB }}
       run: |
         git config --local user.email "dav@danskecommodities.com"
-        git config --local user.name "David Lo"
+        git config --local user.name "Deployment David"
         git add dist
         git commit -m "Update dist folder"
-        git push origin HEAD:main   
+        git push https://github.com/${{ github.repository }} HEAD:main 
