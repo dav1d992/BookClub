@@ -22,23 +22,4 @@ jobs:
       run: yarn install
 
     - name: Build application
-      run: yarn run build  
-
-    - name: Test Command
-      run: echo "Hello World"
-
-    - name: Deploy to Hostinger
-      env:
-        KEY_BOOK_CLUB: ${{ secrets.KEY_BOOK_CLUB }}
-      run: |
-        mkdir -p ~/.ssh/
-        echo "$KEY_BOOK_CLUB" | tr -d '\r' > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan 212.107.17.238 >> ~/.ssh/known_hosts
-        # Debugging steps to check the SSH setup
-        echo "SSH directory contents:"
-        ls -la ~/.ssh/
-        echo "Contents of id_rsa:"
-        cat ~/.ssh/id_rsa
-        echo "Attempting SSH connection:"
-        ssh -v -o StrictHostKeyChecking=no u208111771@212.107.17.238 'echo "SSH connection successful"; git pull origin main && yarn install && yarn run build'
+      run: yarn build  
