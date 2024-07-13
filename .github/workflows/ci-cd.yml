@@ -27,8 +27,6 @@ jobs:
     - name: Replace Dist Folder
       run: |
         rm -rf dist/*
-        ls -la 
-        cp -r dist/* .
 
     - name: Commit and Push Dist Changes
       run: |
