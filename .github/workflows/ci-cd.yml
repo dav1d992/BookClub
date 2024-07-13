@@ -23,15 +23,15 @@ jobs:
 
     - name: Replace Dist Folder
       run: |
-        chmod +x build.sh
-        ./build.sh
+        chmod +x replace_dist.sh
+        ./replace_dist.sh
 
     - name: Commit and Push Dist Changes
       env:
         PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
       run: |
         git config --local user.email "dav@danskecommodities.com"
-        git config --local user.name "Deployment David"
+        git config --local user.name "BOT"
         git add dist
-        git commit -m "Update dist folder"
+        git commit -m "[BOT] Update Production Files"
         git push https://github.com/${{ github.repository }} HEAD:main 
