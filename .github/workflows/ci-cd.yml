@@ -29,7 +29,7 @@ jobs:
         rm -rf dist
         mkdir -p dist
         if [ -d "dist" ]; then
-          cp -r dist/* .
+          cp -r dist .
         else
           echo "No 'dist' folder found."
         fi
