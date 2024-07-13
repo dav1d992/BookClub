@@ -23,8 +23,8 @@ jobs:
 
     - name: Replace Dist Folder
       run: |
-        chmod +x replace_dist.sh
-        ./replace_dist.sh
+        chmod +x build.sh
+        ./build.sh
 
     - name: Commit and Push Dist Changes
       env:
