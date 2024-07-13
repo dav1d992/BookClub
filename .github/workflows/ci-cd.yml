@@ -21,18 +21,10 @@ jobs:
     - name: Install dependencies
       run: yarn install
 
-    - name: Build application
-      run: yarn build  
-
     - name: Replace Dist Folder
       run: |
-        rm -rf dist
-        mkdir -p dist
-        if [ -d "dist" ]; then
-          cp -r dist .
-        else
-          echo "No 'dist' folder found."
-        fi
+        chmod +x replace_dist.sh
+        ./replace_dist.sh
 
     - name: Commit and Push Dist Changes
       env:
