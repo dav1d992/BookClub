@@ -25,61 +25,33 @@
 
   <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
     <div
-      class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg transition-colors duration-300"
+      class="bg-gray-100 dark:bg-gray-900 p-6 rounded-lg shadow-lg transition-colors duration-300"
     >
       <h2 class="text-2xl font-semibold mb-2">Seneste bøger</h2>
       <ul class="divide-y divide-gray-200 dark:divide-gray-700">
         <li class="py-2">
-          <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline"
-            >Book Title 1</a
+          <button
+            (click)="downloadPdf('Kitab-al-Irshad.pdf')"
+            class="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
           >
+            Kitab al-Irshad [ENG]
+          </button>
           <p class="text-gray-700 dark:text-gray-300">
-            Description of the book goes here.
-          </p>
-        </li>
-        <li class="py-2">
-          <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline"
-            >Book Title 2</a
-          >
-          <p class="text-gray-700 dark:text-gray-300">
-            Description of the book goes here.
-          </p>
-        </li>
-        <li class="py-2">
-          <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline"
-            >Book Title 3</a
-          >
-          <p class="text-gray-700 dark:text-gray-300">
-            Description of the book goes here.
+            En biografi om de 12 imamers liv. Den beskriver deres historiske
+            omstændigheder, mirakler og dyder.
           </p>
         </li>
       </ul>
     </div>
 
     <div
-      class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg transition-colors duration-300"
+      class="bg-gray-100 dark:bg-gray-900 p-6 rounded-lg shadow-lg transition-colors duration-300"
     >
-      <h2 class="text-2xl font-semibold mb-2">Upcoming Events</h2>
+      <h2 class="text-2xl font-semibold mb-2">Kommende møder</h2>
       <ul class="divide-y divide-gray-200 dark:divide-gray-700">
         <li class="py-2">
           <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline"
-            >Event Title 1</a
-          >
-          <p class="text-gray-700 dark:text-gray-300">
-            Date and details of the event.
-          </p>
-        </li>
-        <li class="py-2">
-          <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline"
-            >Event Title 2</a
-          >
-          <p class="text-gray-700 dark:text-gray-300">
-            Date and details of the event.
-          </p>
-        </li>
-        <li class="py-2">
-          <a href="#" class="text-blue-600 dark:text-blue-400 hover:underline"
-            >Event Title 3</a
+            >Møde #1</a
           >
           <p class="text-gray-700 dark:text-gray-300">
             Date and details of the event.
@@ -89,9 +61,9 @@
     </div>
 
     <div
-      class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg transition-colors duration-300"
+      class="bg-gray-100 dark:bg-gray-900 p-6 rounded-lg shadow-lg transition-colors duration-300"
     >
-      <h2 class="text-2xl font-semibold mb-2">Join Our Community</h2>
+      <h2 class="text-2xl font-semibold mb-2">Vil du høre mere?</h2>
       <p class="text-gray-700 dark:text-gray-300">
         Stay updated with our latest news, events, and book recommendations by
         joining our community.
@@ -99,7 +71,7 @@
       <a
         href="/contact"
         class="bg-blue-600 text-white py-2 px-4 rounded-lg inline-block mt-4 hover:bg-blue-700 transition-colors duration-300"
-        >Join Now</a
+        >Kontakt os</a
       >
     </div>
   </section>
