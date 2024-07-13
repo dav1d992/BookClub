@@ -21,5 +21,8 @@ jobs:
     - name: Install dependencies
       run: yarn install
 
+    - name: Ensure dist directory exists
+      run: mkdir -p dist 
+
     - name: Build application
       run: yarn build  
