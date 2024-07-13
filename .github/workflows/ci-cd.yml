@@ -21,8 +21,18 @@ jobs:
     - name: Install dependencies
       run: yarn install
 
-    - name: Ensure dist directory exists
-      run: mkdir -p dist 
-
     - name: Build application
       run: yarn build  
+
+    - name: Replace Dist Folder
+      run: |
+        rm -rf dist  
+        mv dist .  
+
+    - name: Commit and Push Dist Changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add dist
+        git commit -m "Update dist folder"
+        git push origin HEAD:main  # Replace 'main' with your branch name if different      
