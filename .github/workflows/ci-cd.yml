@@ -26,9 +26,13 @@ jobs:
 
     - name: Replace Dist Folder
       run: |
-        rm -rf dist  
-        mkdir -p dist  
-        cp -r dist/* .  
+        rm -rf dist
+        mkdir -p dist
+        if [ -d "dist" ]; then
+          cp -r dist/* .
+        else
+          echo "No 'dist' folder found."
+        fi
 
     - name: Commit and Push Dist Changes
       env:
