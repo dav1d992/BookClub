@@ -26,13 +26,13 @@ jobs:
 
     - name: Replace Dist Folder
       run: |
-        rm -rf dist  
-        mv dist .  
+        rm -rf dist/*
+        cp -r dist/* .
 
     - name: Commit and Push Dist Changes
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
+        git config --local user.email "dav@danskecommodities.com"
+        git config --local user.name "David Lo"
         git add dist
         git commit -m "Update dist folder"
-        git push origin HEAD:main  # Replace 'main' with your branch name if different      
+        git push origin HEAD:main   
