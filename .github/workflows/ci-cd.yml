@@ -24,9 +24,17 @@ jobs:
     - name: Build application
       run: yarn build  
 
+    - name: Debug: List contents of root directory
+      run: ls -la
+
+    - name: Debug: List contents of dist directory
+      run: ls -la dist
+
     - name: Replace Dist Folder
       run: |
         rm -rf dist/*
+        ls -la 
+        ls -la dist
         cp -r dist/* .
 
     - name: Commit and Push Dist Changes
