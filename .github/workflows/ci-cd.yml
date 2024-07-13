@@ -28,7 +28,6 @@ jobs:
       run: |
         rm -rf dist/*
         ls -la 
-        ls -la dist
         cp -r dist/* .
 
     - name: Commit and Push Dist Changes
