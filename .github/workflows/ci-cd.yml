@@ -32,4 +32,4 @@ jobs:
         echo "$KEY_BOOK_CLUB" | tr -d '\r' > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan 212.107.17.238 >> ~/.ssh/known_hosts
-        ssh -o StrictHostKeyChecking=no u208111771@212.107.17.238 'cd /path/to/your/project && git pull origin main && yarn install && yarn run build'
+        ssh -o StrictHostKeyChecking=no u208111771@212.107.17.238 'git pull origin main && yarn install && yarn run build'
