@@ -8,9 +8,10 @@ import {
   provideHttpClient,
   withInterceptorsFromDi,
 } from '@angular/common/http';
+import { BlogItemComponent } from './pages/blogs/components/blog-item/blog-item.component';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent],
+  declarations: [AppComponent, NavbarComponent, BlogItemComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [provideHttpClient(withInterceptorsFromDi())],
   bootstrap: [AppComponent],
