@@ -4,6 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { BlogsComponent } from './pages/blogs/blogs.component';
 import { BooksComponent } from './pages/books/books.component';
+import { BlogItemComponent } from './pages/blogs/components/blog-item/blog-item.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
       {
         path: 'blogs',
         component: BlogsComponent,
+      },
+      {
+        path: 'blog/:id',
+        component: BlogItemComponent,
       },
       {
         path: 'books',

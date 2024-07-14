@@ -1,0 +1,44 @@
+$default-width: 60%;
+$small-screen-width: 80%;
+
+.base-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: $default-width;
+
+  @media (max-width: 768px) {
+    width: $small-screen-width;
+  }
+}
+
+.blog-item-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 16vh;
+
+  @media (max-width: 768px) {
+    height: auto;
+  }
+}
+
+.blog-item-labels {
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-item-image {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  width: 20vw;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    width: 50vw;
+  }
+}
