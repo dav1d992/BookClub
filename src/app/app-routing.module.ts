@@ -8,34 +8,24 @@ import { BlogItemComponent } from './pages/blogs/components/blog-item/blog-item.
 
 const routes: Routes = [
   {
+    path: 'about-us',
+    component: AboutUsComponent,
+  },
+  {
+    path: 'blogs',
+    component: BlogsComponent,
+  },
+  {
+    path: 'blog/:id',
+    component: BlogItemComponent,
+  },
+  {
+    path: 'books',
+    component: BooksComponent,
+  },
+  {
     path: '',
     component: HomeComponent,
-  },
-  {
-    path: '',
-    children: [
-      {
-        path: 'about-us',
-        component: AboutUsComponent,
-      },
-      {
-        path: 'blogs',
-        component: BlogsComponent,
-      },
-      {
-        path: 'blog/:id',
-        component: BlogItemComponent,
-      },
-      {
-        path: 'books',
-        component: BooksComponent,
-      },
-    ],
-  },
-  {
-    path: '**',
-    redirectTo: '',
-    pathMatch: 'full',
   },
 ];
 @NgModule({
