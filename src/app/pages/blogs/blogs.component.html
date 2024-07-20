@@ -7,7 +7,7 @@
 
   <div class="blogs-container">
     @for (blog of blogs; track blog) {
-      <div class="max-w-sm rounded overflow-hidden shadow-lg">
+      <div class="max-w-sm rounded overflow-hidden shadow-lg"  (click)="viewBlog(blog.id)">
         <div class="blog-item-image">
           <img class="w-full shadow-lg" [src]="blog.image" alt="Sunset in the mountains">
         </div>
