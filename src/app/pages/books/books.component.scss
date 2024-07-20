@@ -1,0 +1,55 @@
+$default-width: 60%;
+$small-screen-width: 80%;
+
+.base-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: $default-width;
+
+    @media (max-width: 768px) {
+        width: $small-screen-width;
+    }
+}
+
+.book-item-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 16vh;
+
+    @media (max-width: 768px) {
+        height: auto;
+    }
+}
+
+.book-item-labels {
+    display: flex;
+    flex-direction: column;
+}
+
+.book-item-image {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    height: 40vh;
+    overflow: hidden;
+
+    @media (max-width: 768px) {
+        height: 50vh;
+    }
+}
+
+.books-container {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    place-items: center;
+
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(auto-fill, minmax(50vw, 1fr));
+    }
+}
