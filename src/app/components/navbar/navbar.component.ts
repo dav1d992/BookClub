@@ -9,12 +9,21 @@ import { ThemeService } from 'src/app/services/theme.service';
 export class NavbarComponent implements OnInit {
   private readonly themeService = inject(ThemeService);
   private readonly renderer = inject(Renderer2);
+  public isNavbarOpen = false;
 
   ngOnInit() {
     this.themeService.initializeTheme(this.renderer);
   }
 
-  toggleDarkMode() {
+  public toggleDarkMode() {
     this.themeService.toggleTheme(this.renderer);
+  }
+
+  public toggleNavbar() {
+    this.isNavbarOpen = !this.isNavbarOpen;
+  }
+
+  public closeHamburger() {
+    this.isNavbarOpen = false;
   }
 }
