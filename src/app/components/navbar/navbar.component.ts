@@ -10,9 +10,13 @@ export class NavbarComponent implements OnInit {
   private readonly themeService = inject(ThemeService);
   private readonly renderer = inject(Renderer2);
   public isNavbarOpen = false;
+  public isDarkMode = false;
 
   ngOnInit() {
     this.themeService.initializeTheme(this.renderer);
+    this.themeService.theme$.subscribe((theme) => {
+      this.isDarkMode = theme === 'dark';
+    });
   }
 
   public toggleDarkMode() {
