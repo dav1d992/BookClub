@@ -17,16 +17,22 @@ export class BooksComponent {
       image: '../../../assets/al-mufid.png',
     },
     {
-      id: 'club-meeting',
-      title: 'Placeholder bog',
-      date: '10-04-2024',
-      image: '../../../assets/ai_book_club_meeting_1.png',
+      id: 'human-reader',
+      title: 'Kunsten af at læse',
+      date: '10-04-2023',
+      image: '../../../assets/images/human_reads_book.jpg',
     },
     {
-      id: 'garlic-bread-with-cheese',
-      title: 'Hvidløgsbrød',
-      date: '10-20-2022',
-      image: '../../../assets/garlic-bread.png',
+      id: 'david-writer',
+      title: 'Breve skriver ikke sig selv',
+      date: '30-10-2024',
+      image: '../../../assets/images/david_writes_letter.jpg',
+    },
+    {
+      id: 'dusen-talker',
+      title: 'At tale foran et stort publikum',
+      date: '10-20-2023',
+      image: '../../../assets/images/dusen_speech.jpg',
     },
   ];
 
