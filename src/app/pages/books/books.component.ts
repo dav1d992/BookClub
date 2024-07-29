@@ -13,26 +13,32 @@ export class BooksComponent {
     {
       id: 'kitab-al-irshad',
       title: 'Kitab al-Irshad',
-      date: '10-20-2023',
+      date: '15-09-2023',
       image: '../../../assets/al-mufid.png',
     },
     {
       id: 'human-reader',
-      title: 'Kunsten af at læse',
+      title: 'Dyk ned i Litteraturen',
       date: '10-04-2023',
       image: '../../../assets/images/human_reads_book.jpg',
     },
     {
       id: 'david-writer',
-      title: 'Breve skriver ikke sig selv',
+      title: 'Håndskrevne Tanker',
       date: '30-10-2024',
       image: '../../../assets/images/david_writes_letter.jpg',
     },
     {
       id: 'dusen-talker',
-      title: 'At tale foran et stort publikum',
+      title: 'Tal med Selvsikkerhed',
       date: '10-20-2023',
       image: '../../../assets/images/dusen_speech.jpg',
+    },
+    {
+      id: 'zain-sailor',
+      title: 'Frihed på Bølgerne',
+      date: '28-02-2024',
+      image: '../../../assets/images/zain_sails_boat.jpg',
     },
   ];
 
