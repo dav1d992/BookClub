@@ -1,5 +1,6 @@
 .app-container {
-  @apply min-h-screen bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 transition-colors duration-300;
+  @apply bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 transition-colors duration-300;
+  min-height: 1000vh;
 }
 
 .app-header {
