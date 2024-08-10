@@ -14,7 +14,7 @@ export class BooksComponent {
       id: 'kitab-al-irshad',
       title: 'Kitab al-Irshad',
       date: '15-09-2023',
-      image: '../../../assets/al-mufid.png',
+      image: '../../../assets/holy_writing.jpg',
     },
     {
       id: 'dusen-talker',

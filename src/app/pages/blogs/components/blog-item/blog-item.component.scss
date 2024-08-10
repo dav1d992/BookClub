@@ -5,7 +5,6 @@ $small-screen-width: 80%;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: $default-width;
 
   @media (max-width: 768px) {
     width: $small-screen-width;
