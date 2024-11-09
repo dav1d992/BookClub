@@ -15,17 +15,6 @@ $small-screen-width: 80%;
   }
 }
 
-.blog-item-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  height: 16vh;
-
-  @media (max-width: 768px) {
-    height: auto;
-  }
-}
-
 .blog-item-labels {
   display: flex;
   flex-direction: column;

@@ -14,16 +14,9 @@ export class BlogsComponent {
       id: 'hvem-var-sheikh-al-mufid',
       title: 'Hvem var Sheikh al-Mufid',
       date: '10-20-2023',
-      image: '../../../assets/al-mufid.png',
+      image: '../../../assets/kitab-al-irshad/mufid-cover.jpg',
       markdownFile: 'assets/blogs/hvem-var-sheikh-al-mufid.md',
-    },
-    {
-      id: 'garlic-bread-with-cheese',
-      title: 'Garlic bread with cheese',
-      date: '10-20-2022',
-      image: '../../../assets/garlic-bread.png',
-      markdownFile: 'assets/blogs/garlic-bread-with-cheese.md',
-    },
+    }
   ];
 
   public viewBlog(id: string): void {
