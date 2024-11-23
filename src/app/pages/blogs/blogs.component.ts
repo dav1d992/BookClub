@@ -16,6 +16,8 @@ export class BlogsComponent {
       date: '10-20-2023',
       image: '../../../assets/kitab-al-irshad/mufid-cover.jpg',
       markdownFile: 'assets/blogs/hvem-var-sheikh-al-mufid.md',
+      description: 'Kendt for at forsvare imamernes rolle i islam og præge shia-doktriner. Hans værker blev grundlæggende for shia-islamisk tænkning og teologi.',
+      tags: ['islam', 'shia']
     }
   ];
 
