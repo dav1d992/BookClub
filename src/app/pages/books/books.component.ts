@@ -23,10 +23,10 @@ export class BooksComponent {
       image: '../../../assets/images/dusen_speech.jpg',
     },
     {
-      id: 'zain-sailor',
-      title: 'Islam Overalt part II - Bølgerne',
-      date: '28-02-2024',
-      image: '../../../assets/images/zain_sails_boat.jpg',
+      id: 'ali-abu-juice',
+      title: 'Kampen om Fred',
+      date: '28-06-2024',
+      image: '../../../assets/images/ali-in-battle.jpg',
     },
     {
       id: 'human-reader',
