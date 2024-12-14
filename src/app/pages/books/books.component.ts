@@ -19,7 +19,7 @@ export class BooksComponent {
     {
       id: 'dusen-talker',
       title: 'Tal med Selvsikkerhed',
-      date: '10-20-2023',
+      date: '10-02-2023',
       image: '../../../assets/images/dusen_speech.jpg',
     },
     {
@@ -39,6 +39,12 @@ export class BooksComponent {
       title: 'Håndskrevne Tanker',
       date: '30-10-2024',
       image: '../../../assets/images/david_writes_letter.jpg',
+    },
+    {
+      id: 'oliver-sauces',
+      title: 'Alle består af væsker - bind 1',
+      date: '15-11-2024',
+      image: '../../../assets/images/oliver_sauces.jpg',
     },
   ];
 
