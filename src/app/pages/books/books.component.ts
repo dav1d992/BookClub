@@ -42,7 +42,7 @@ export class BooksComponent {
     },
     {
       id: 'oliver-sauces',
-      title: 'Alle består af væsker - bind 1',
+      title: 'Alle består af Væsker - Bind 1',
       date: '15-11-2024',
       image: '../../../assets/images/oliver_sauces.jpg',
     },
