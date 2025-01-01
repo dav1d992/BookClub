@@ -10,10 +10,67 @@
       </div>
       <div class="flex flex-col justify-center">
         <h1 class="text-4xl font-bold mb-4">Velkommen til bogklubben</h1>
-        <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
+        <p class="text-lg text-gray-700 dark:text-gray-300 mb-2">
           Udforsk verden af ​​islamisk litteratur med os. Deltag i vores
           fællesskab for at diskutere og lære af en mangfoldig samling af bøger.
         </p>
+
+        <div class="bg-gray-100 dark:bg-gray-900 p-6 rounded-lg shadow-lg py-2">
+          <div class="flex justify-between items-center">
+            <h2 class="text-lg font-semibold">Bøntider (Aarhus)</h2>
+            <div class="relative group">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 text-gray-500 cursor-pointer"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8v4m0 4h.01M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"
+                />
+              </svg>
+              <span
+                class="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 text-xs bg-gray-800 text-white rounded py-1 px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+              >
+                Fra {{ prayerTimes?.calculationsFrom }} via Aladhan API
+              </span>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between items-center py-2">
+              <p class="font-medium">Fajr</p>
+              <p class="font-semibold">
+                {{ prayerTimes?.fajr }}
+              </p>
+            </div>
+
+            <div class="flex justify-between items-center py-2">
+              <p class="font-medium">Sunrise</p>
+              <p class="font-semibold">
+                {{ prayerTimes?.sunrise }}
+              </p>
+            </div>
+
+            <div class="flex justify-between items-center py-2">
+              <p class="font-medium">Dhuhr</p>
+              <p class="font-semibold">
+                {{ prayerTimes?.dhuhr }}
+              </p>
+            </div>
+
+            <div class="flex justify-between items-center py-2">
+              <p class="font-medium">Maghrib</p>
+              <p class="font-semibold">
+                {{ prayerTimes?.maghrib }}
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
