@@ -4,11 +4,17 @@
 @tailwind typography;
 
 .image-md {
-    width: 24rem;
-    height: 100%;
+  width: 24rem;
+  height: 100%;
 }
 
 .image-lg {
-    width: 30rem;
-    height: 100%;
+  width: 30rem;
+  height: 100%;
+}
+
+@layer base {
+  body {
+    @apply dark:bg-gray-800 text-gray-800 dark:text-gray-100;
+  }
 }

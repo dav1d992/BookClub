@@ -1,4 +1,4 @@
-<div class="base-container">
+<div class="base-container animate-fade-in">
   <h1
     class="text-4xl text-gray-700 dark:text-gray-300 font-bold mb-4 text-center"
   >
@@ -7,23 +7,35 @@
 
   <div class="books-container">
     @for (book of books; track book) {
-      <div class="max-w-sm rounded overflow-hidden shadow-lg">
-        <div class="book-item-image">
-          <img class="w-full shadow-lg" [src]="book.image" alt="placeholder">
-        </div>
-        <div class="px-6 py-4">
-          <div class="font-bold text-xl mb-2">{{ book.title }}</div>
-          <p class="text-gray-700 dark:text-gray-300 text-base">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-          </p>
-        </div>
-        <div class="px-6 pt-4 pb-2">
-          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#islam</span>
-          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#shiisme</span>
-          <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#teologi</span>
-        </div>
+    <div
+      class="bg-gray-100 dark:bg-gray-900 transition-colors duration-300 animate-fade-in max-w-sm rounded overflow-hidden shadow-lg"
+    >
+      <div class="book-item-image">
+        <img class="w-full shadow-lg" [src]="book.image" alt="placeholder" />
       </div>
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">{{ book.title }}</div>
+        <p
+          class="text-gray-700 dark:text-gray-300 text-base transition-colors duration-300"
+        >
+          {{ book.description }}
+        </p>
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <span
+          class="inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 transition-colors duration-300"
+          >#islam</span
+        >
+        <span
+          class="inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 transition-colors duration-300"
+          >#shiisme</span
+        >
+        <span
+          class="inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 transition-colors duration-300"
+          >#teologi</span
+        >
+      </div>
+    </div>
     }
   </div>
 </div>
-

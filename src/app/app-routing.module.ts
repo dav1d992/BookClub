@@ -5,11 +5,16 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { BlogsComponent } from './pages/blogs/blogs.component';
 import { BooksComponent } from './pages/books/books.component';
 import { BlogItemComponent } from './pages/blogs/components/blog-item/blog-item.component';
+import { TimelineComponent } from './pages/timeline/timeline.component';
 
 const routes: Routes = [
   {
     path: 'about-us',
     component: AboutUsComponent,
+  },
+  {
+    path: 'timeline',
+    component: TimelineComponent,
   },
   {
     path: 'blogs',

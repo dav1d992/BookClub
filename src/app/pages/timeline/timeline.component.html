@@ -1,0 +1,54 @@
+<div class="base-container animate-fade-in">
+  <div
+    class="bg-slate-300 dark:bg-slate-500 text-black text-center font-semibold text-lg p-4 rounded-md"
+  >
+    <span class="text-4xl">⚠️</span>
+    UNDER KONSTRUKTION OG SANITERINGSTJEK
+    <span class="text-4xl">⚠️</span>
+  </div>
+
+  <div class="text-center">
+    <h1 class="text-4xl font-bold mb-2">Tidslinjen</h1>
+    <p class="text-lg text-gray-700 dark:text-gray-300">
+      Taget fra <em>Kitab al-Irshad</em>'s perspektiv.
+    </p>
+    <p class="mt-4 text-lg text-gray-700 dark:text-gray-300">
+      Denne tidslinje giver et overblik over nøglebegivenheder, der formede den
+      islamiske verden og Shi'ismens udvikling, med fokus på Imamernes (as) liv
+      og deres betydning.
+    </p>
+  </div>
+
+  <ol class="relative border-s border-gray-200 dark:border-gray-700">
+    @for (entry of timelineEntries; track entry) {
+    <li
+      class="mb-10 ms-6 cursor-pointer"
+      (click)="entry.showDescription = !entry.showDescription"
+    >
+      <span
+        class="absolute flex items-center justify-center w-7 h-7 bg-blue-200 rounded-full -start-3 dark:bg-gray-900 dark:text-blue-300"
+      >
+        {{ entry.icon }}
+      </span>
+
+      <h3
+        class="flex flex-wrap items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white"
+      >
+        <span
+          class="inline-block bg-blue-200 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-900 dark:text-blue-300"
+        >
+          {{ entry.date }}
+        </span>
+        {{ entry.title }}
+      </h3>
+      @if(entry.showDescription) {
+      <div
+        class="mb-4 text-base font-normal text-gray-800 dark:text-gray-200 animate-fade-in"
+      >
+        {{ entry.description }}
+      </div>
+      }
+    </li>
+    }
+  </ol>
+</div>
