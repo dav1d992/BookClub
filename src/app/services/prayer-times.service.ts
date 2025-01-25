@@ -23,6 +23,7 @@ export class PrayerTimesService {
           fajr: response.data.timings.Fajr,
           sunrise: response.data.timings.Sunrise,
           dhuhr: response.data.timings.Dhuhr,
+          sunset: response.data.timings.Sunset,
           maghrib: response.data.timings.Maghrib,
           calculationsFrom: response.data.meta.method.name,
         };
@@ -35,6 +36,7 @@ export interface PrayerTimes {
   fajr: string;
   sunrise: string;
   dhuhr: string;
+  sunset: string;
   maghrib: string;
   calculationsFrom: string;
 }
