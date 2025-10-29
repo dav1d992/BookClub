@@ -1,4 +1,4 @@
-<main class="container animate-fade-in">
+<main class="animate-fade-in">
   <section class="mb-12">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div class="flex items-center justify-center">
@@ -10,18 +10,20 @@
       </div>
       <div class="flex flex-col justify-center">
         <h1 class="text-4xl font-bold mb-4">Velkommen til bogklubben</h1>
-        <p class="text-lg text-gray-700 dark:text-gray-300 mb-2">
+        <p class="text-lg text-stone-700 dark:text-stone-300 mb-2">
           Udforsk verden af ​​islamisk litteratur med os. Deltag i vores
           fællesskab for at diskutere og lære af en mangfoldig samling af bøger.
         </p>
 
-        <div class="bg-gray-100 dark:bg-gray-900 p-6 rounded-lg shadow-lg py-2">
+        <div
+          class="bg-stone-300 dark:bg-stone-900 p-6 rounded-lg shadow-lg py-2"
+        >
           <div class="flex justify-between items-center py-2">
             <h2 class="text-lg font-bold">Bøntider (Aarhus)</h2>
             <div class="relative group">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-gray-500 cursor-pointer"
+                class="h-5 w-5 text-stone-500 cursor-pointer"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -34,7 +36,7 @@
                 />
               </svg>
               <span
-                class="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 text-xs bg-gray-800 text-white rounded py-1 px-4 w-64 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                class="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 text-xs bg-stone-800 text-white rounded py-1 px-4 w-64 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
               >
                 Fra {{ prayerTimes?.calculationsFrom }} via Aladhan API
               </span>
@@ -82,10 +84,10 @@
 
   <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
     <div
-      class="bg-gray-100 dark:bg-gray-900 p-6 rounded-lg shadow-lg transition-colors duration-300"
+      class="bg-stone-300 dark:bg-stone-900 p-6 rounded-lg shadow-lg transition-colors duration-300"
     >
       <h2 class="text-2xl font-semibold mb-2">Seneste bøger</h2>
-      <ul class="divide-y divide-gray-200 dark:divide-gray-700">
+      <ul class="divide-y divide-stone-200 dark:divide-stone-700">
         <li class="py-2">
           <button
             (click)="downloadPdf('Kitab-al-Ghayba.pdf')"
@@ -93,7 +95,7 @@
           >
             Kitab al-Ghayba [ENG]
           </button>
-          <p class="text-gray-700 dark:text-gray-300">
+          <p class="text-stone-700 dark:text-stone-300">
             Et værk af al-Nuʿmānī, som omhandler doktrinen om Imam al-Mahdis
             (aj) okkultation og hans forventede tilbagekomst.
           </p>
@@ -105,7 +107,7 @@
           >
             Kitab al-Irshad [ENG]
           </button>
-          <p class="text-gray-700 dark:text-gray-300">
+          <p class="text-stone-700 dark:text-stone-300">
             En biografi om de 12 imamers liv af Sheikh al-Mufid. Den beskriver
             deres historiske omstændigheder, mirakler og dyder.
           </p>
@@ -114,22 +116,22 @@
     </div>
 
     <div
-      class="bg-gray-100 dark:bg-gray-900 p-6 rounded-lg shadow-lg transition-colors duration-300"
+      class="bg-stone-300 dark:bg-stone-900 p-6 rounded-lg shadow-lg transition-colors duration-300"
     >
       <h2 class="text-2xl font-semibold mb-2">Kommende møder</h2>
-      <ul class="divide-y divide-gray-200 dark:divide-gray-700">
+      <ul class="divide-y divide-stone-200 dark:divide-stone-700">
         @for (meeting of futureMeetings(); track meeting.date) {
-        <li class="py-2 border-b border-gray-200 dark:border-gray-700">
-          <p class="text-md font-bold text-blue-700 dark:text-blue-300 mb-2">
+        <li class="py-2 border-b border-stone-200 dark:border-stone-700">
+          <p class="text-md font-bold text-stone-700 dark:text-stone-300 mb-2">
             {{ meeting.day }} {{ meeting.date | date : "dd-MM-yyyy" }}
           </p>
-          <p class="text-gray-700 dark:text-gray-300 text-sm mb-1">
+          <p class="text-stone-700 dark:text-stone-300 text-sm mb-1">
             <b>Emne</b> {{ meeting.topic }}
           </p>
-          <p class="text-gray-700 dark:text-gray-300 text-sm mb-1">
+          <p class="text-stone-700 dark:text-stone-300 text-sm mb-1">
             <b>Sted</b> {{ meeting.place }}
           </p>
-          <p class="text-gray-700 dark:text-gray-300 text-sm mb-1">
+          <p class="text-stone-700 dark:text-stone-300 text-sm mb-1">
             <b>Tid</b> {{ meeting.time }}
           </p>
         </li>
@@ -137,15 +139,15 @@
       </ul>
 
       @if (futureMeetings().length === 0) {
-      <p class="text-gray-500 dark:text-gray-400">Ingen kommende møder</p>
+      <p class="text-stone-500 dark:text-stone-400">Ingen kommende møder</p>
       }
     </div>
 
     <div
-      class="bg-gray-100 dark:bg-gray-900 p-6 rounded-lg shadow-lg transition-colors duration-300"
+      class="bg-stone-300 dark:bg-stone-900 p-6 rounded-lg shadow-lg transition-colors duration-300"
     >
       <h2 class="text-2xl font-semibold mb-2">Vil du høre mere?</h2>
-      <p class="text-gray-700 dark:text-gray-300">
+      <p class="text-stone-700 dark:text-stone-300">
         Hold dig opdateret med vores seneste nyheder, begivenheder og
         boganbefalinger ved at blive medlem af vores fællesskab.
       </p>

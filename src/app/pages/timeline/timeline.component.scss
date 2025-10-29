@@ -2,15 +2,16 @@ $default-width: 60%;
 $small-screen-width: 80%;
 
 .base-container {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: $default-width;
-  
-    @media (max-width: 768px) {
-      width: $small-screen-width;
-    }
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: $default-width;
+  min-height: 100vh;
+
+  @media (max-width: 768px) {
+    width: $small-screen-width;
+  }
 }
