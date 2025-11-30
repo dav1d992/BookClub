@@ -5,6 +5,7 @@ import { ThemeService } from './services/theme.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  standalone: false,
 })
 export class AppComponent implements OnInit {
   private readonly themeService = inject(ThemeService);

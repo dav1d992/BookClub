@@ -7,6 +7,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
   selector: 'app-blog-item',
   templateUrl: './blog-item.component.html',
   styleUrls: ['./blog-item.component.scss'],
+	standalone: false,
 })
 export class BlogItemComponent implements OnInit {
   blogId!: string;

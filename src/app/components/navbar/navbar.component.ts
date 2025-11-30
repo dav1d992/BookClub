@@ -5,6 +5,7 @@ import { ThemeService } from "src/app/services/theme.service";
 	selector: "navbar",
 	templateUrl: "./navbar.component.html",
 	styleUrls: ["./navbar.component.scss"],
+	standalone: false,
 })
 export class NavbarComponent implements OnInit {
 	private readonly themeService = inject(ThemeService);

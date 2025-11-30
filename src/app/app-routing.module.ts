@@ -7,7 +7,7 @@ import { TimelineComponent } from "./pages/timeline/timeline.component";
 import { RouterModule, type Routes } from "@angular/router";
 import { AboutUsComponent } from "./pages/about-us/about-us.component";
 
-const routes: Routes = [
+export const routes: Routes = [
 	{
 		path: "about",
 		component: AboutUsComponent,
