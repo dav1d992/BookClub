@@ -1,18 +1,9 @@
-import { trigger, transition, style, animate } from "@angular/animations";
 import { Component } from "@angular/core";
 
 @Component({
 	selector: "app-timeline",
 	templateUrl: "./timeline.component.html",
 	styleUrls: ["./timeline.component.scss"],
-	animations: [
-		trigger("fadeIn", [
-			transition(":enter", [
-				style({ opacity: 0 }),
-				animate("1s", style({ opacity: 1 })),
-			]),
-		]),
-	],
 })
 export class TimelineComponent {
 	public timelineEntries = [

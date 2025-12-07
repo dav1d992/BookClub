@@ -1,17 +1,8 @@
-import { trigger, transition, style, animate } from "@angular/animations";
-import { Component, type OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 
 @Component({
 	selector: "app-about-us",
 	templateUrl: "./about-us.component.html",
 	styleUrls: ["./about-us.component.scss"],
-	animations: [
-		trigger("fadeIn", [
-			transition(":enter", [
-				style({ opacity: 0 }),
-				animate("1s", style({ opacity: 1 })),
-			]),
-		]),
-	],
 })
 export class AboutUsComponent {}
