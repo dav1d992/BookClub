@@ -8,7 +8,7 @@ import { Component } from "@angular/core";
 export class TimelineComponent {
 	public timelineEntries = [
 		{
-			icon: "🌟",
+			icon: "🍼",
 			title: "Profetens (saws) fødsel",
 			date: "År 570 (53 FH)",
 			description:
@@ -72,7 +72,7 @@ export class TimelineComponent {
 			showDescription: false,
 		},
 		{
-			icon: "⚰️",
+			icon: "🪦",
 			title: "Profetens (saws) død",
 			date: "År 632 (11 EH)",
 			description:
@@ -80,7 +80,7 @@ export class TimelineComponent {
 			showDescription: false,
 		},
 		{
-			icon: "🌹",
+			icon: "🪦",
 			title: "Fatima al-Zahras (as) martyrdom",
 			date: "År 632 (11 EH)",
 			description:
@@ -96,21 +96,29 @@ export class TimelineComponent {
 		},
 		{
 			icon: "⚔️",
-			title: "Siffin-slaget",
+			title: "Siffin-krigen",
 			date: "År 657 (37 EH)",
 			description:
-				"En stor kamp mellem Imam Ali (as) og Muawiyah fandt sted ved Siffin.",
+				"En stor kamp mellem Imam Ali (as) og Muawiyah fandt sted ved Siffin. Krigen endte med voldgift efter Muawiyahs list med Quran'er på spyd.",
 			showDescription: false,
 		},
 		{
-			icon: "☠️",
+			icon: "⚔️",
+			title: "Nahrawan-krigen",
+			date: "År 658 (38 EH)",
+			description:
+				"Imam Ali (as) blev nødt til at bekæmpe Khawarij-gruppen (de, der brød ud efter Siffin) ved Nahrawan.",
+			showDescription: false,
+		},
+		{
+			icon: "🪦",
 			title: "Imam Alis (as) martyrdom",
 			date: "År 661 (40 EH)",
 			description: "Imam Ali (as) blev myrdet, mens han bad i moskeen i Kufa.",
 			showDescription: false,
 		},
 		{
-			icon: "☠️",
+			icon: "🪦",
 			title: "Imam Hasans (as) martyrdom",
 			date: "År 670 (50 EH)",
 			description:
@@ -134,7 +142,7 @@ export class TimelineComponent {
 			showDescription: false,
 		},
 		{
-			icon: "☠️",
+			icon: "🪦",
 			title: "Imam Zayn al-Abidins (as) martyrdom",
 			date: "År 713 (95 EH)",
 			description: "Imam Zayn al-Abidin (as) blev forgiftet af Umayyaderne.",
@@ -149,7 +157,7 @@ export class TimelineComponent {
 			showDescription: false,
 		},
 		{
-			icon: "☠️",
+			icon: "🪦",
 			title: "Imam Muhammad al-Baqirs (as) martyrdom",
 			date: "År 732 (114 EH)",
 			description: "Imam Baqir (as) blev forgiftet af Umayyaderne.",
@@ -164,7 +172,7 @@ export class TimelineComponent {
 			showDescription: false,
 		},
 		{
-			icon: "☠️",
+			icon: "🪦",
 			title: "Imam Ja'far al-Sadiqs (as) martyrdom",
 			date: "År 765 (148 EH)",
 			description:
@@ -180,7 +188,7 @@ export class TimelineComponent {
 			showDescription: false,
 		},
 		{
-			icon: "☠️",
+			icon: "🪦",
 			title: "Imam Musa al-Kazims (as) martyrdom",
 			date: "År 799 (183 EH)",
 			description: "Imam Kazim (as) blev forgiftet i Abbasidernes fængsel.",
@@ -195,7 +203,7 @@ export class TimelineComponent {
 			showDescription: false,
 		},
 		{
-			icon: "☠️",
+			icon: "🪦",
 			title: "Imam Ali al-Ridhas (as) martyrdom",
 			date: "År 818 (203 EH)",
 			description: "Imam Ridha (as) blev forgiftet af kaliffen al-Ma'mun.",
@@ -210,7 +218,7 @@ export class TimelineComponent {
 			showDescription: false,
 		},
 		{
-			icon: "☠️",
+			icon: "🪦",
 			title: "Imam Muhammad al-Taqis (as) martyrdom",
 			date: "År 835 (220 EH)",
 			description:
@@ -218,11 +226,59 @@ export class TimelineComponent {
 			showDescription: false,
 		},
 		{
-			icon: "🔒",
+			icon: "📚",
+			title: "Imamat af Imam Ali al-Naqi (as)",
+			date: "År 835 (220 EH)",
+			description:
+				"Imam Ali al-Naqi (as), også kendt som al-Hadi, blev den 10. Imam. Han levede under hårdt pres fra Abbasiderne og blev tvunget til at bo i Samarra.",
+			showDescription: false,
+		},
+		{
+			icon: "🪦",
+			title: "Imam Ali al-Naqis (as) martyrdom",
+			date: "År 868 (254 EH)",
+			description:
+				"Imam Ali al-Naqi (as) blev forgiftet af Abbasidekaliffen al-Mu'tazz i Samarra.",
+			showDescription: false,
+		},
+		{
+			icon: "🕌",
+			title: "Imamat af Imam Hasan al-Askari (as)",
+			date: "År 868 (254 EH)",
+			description:
+				"Imam Hasan al-Askari (as), den 11. Imam, levede under streng overvågning og begrænsning i Samarra.",
+			showDescription: false,
+		},
+		{
+			icon: "🍼",
 			title: "Fødslen af Imam al-Mahdi (as)",
 			date: "År 869 (255 EH)",
 			description:
-				"Den 12. Imam blev født og gik senere i skjul, hvorfra han vil vende tilbage for at sprede retfærdighed.",
+				"Den 12. Imam, Muhammad al-Mahdi (as), blev født i Samarra. Hans fødsel blev holdt hemmelig på grund af forfølgelse fra Abbasiderne.",
+			showDescription: false,
+		},
+		{
+			icon: "🪦",
+			title: "Imam Hasan al-Askaris (as) martyrdom",
+			date: "År 874 (260 EH)",
+			description:
+				"Imam Hasan al-Askari (as) blev forgiftet af Abbasidekaliffen al-Mu'tamid i Samarra.",
+			showDescription: false,
+		},
+		{
+			icon: "🌙",
+			title: "Den lille skjulthed (Ghaybat al-Sughra)",
+			date: "År 874 (260 EH)",
+			description:
+				"Efter Imam al-Askaris martyrdom begyndte Imam al-Mahdis (as) lille skjulthed, hvor han kommunikerede gennem fire særlige repræsentanter (nawwab).",
+			showDescription: false,
+		},
+		{
+			icon: "🔒",
+			title: "Den store skjulthed (Ghaybat al-Kubra)",
+			date: "År 941 (329 EH)",
+			description:
+				"Efter den fjerde repræsentants død begyndte den store skjulthed. Imam al-Mahdi (as) vil vende tilbage som al-Qa'im for at fylde jorden med retfærdighed.",
 			showDescription: false,
 		},
 	];
