@@ -29,14 +29,7 @@ export class HomeComponent implements OnInit {
 
   public meetings = signal<Meeting[]>([
     {
-      date: '2026-01-04',
-      topic: 'Kitab al-Ghayba side ~278-295',
-      place: 'Engmarken 6, 8220 Brabrand',
-      day: 'Søndag',
-      time: '17:00',
-    },
-    {
-      date: '2026-01-11',
+      date: '2026-01-18',
       topic: 'Kitab al-Ghayba side ~295-315',
       place: 'Engmarken 6, 8220 Brabrand',
       day: 'Søndag',
