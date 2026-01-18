@@ -35,6 +35,13 @@ export class HomeComponent implements OnInit {
       day: 'Søndag',
       time: '17:00',
     },
+    {
+      date: '2026-02-01',
+      topic: 'Kitab al-Ghayba side ~315-335',
+      place: 'Engmarken 6, 8220 Brabrand',
+      day: 'Søndag',
+      time: '17:00',
+    },
   ]);
 
   ngOnInit(): void {
