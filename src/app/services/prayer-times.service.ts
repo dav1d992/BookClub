@@ -18,7 +18,7 @@ export class PrayerTimesService {
       .set('date', date);
 
     return this.http.get<any>(`${this.apiUrl}/${date}`, { params }).pipe(
-      map((response) => {
+      map((response: any) => {
         return <PrayerTimes>{
           fajr: response.data.timings.Fajr,
           sunrise: response.data.timings.Sunrise,
