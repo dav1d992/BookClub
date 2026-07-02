@@ -58,6 +58,14 @@ export class BooksComponent {
       description:
         'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.',
     },
+    {
+      id: 'morten-selvkontrol',
+      title: 'Kunsten at Mestre Selvkontrol',
+      date: '02-07-2026',
+      image: '../../../assets/images/morten_selvkontrol.jpg',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.',
+    },
   ];
 
   public viewBlog(id: string): void {
