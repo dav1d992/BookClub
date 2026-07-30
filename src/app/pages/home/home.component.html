@@ -38,7 +38,7 @@
               <span
                 class="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 text-xs bg-stone-800 text-white rounded py-1 px-4 w-64 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
               >
-                Fra {{ prayerTimes?.calculationsFrom }} via Aladhan API
+                Fra {{ prayerTimes()?.calculationsFrom }} via Aladhan API
               </span>
             </div>
           </div>
@@ -47,33 +47,33 @@
             <div class="flex justify-between items-center py-2">
               <p class="font-medium">Fajr</p>
               <p class="font-semibold">
-                {{ prayerTimes?.fajr }}
+                {{ prayerTimes()?.fajr }}
               </p>
             </div>
 
             <div class="flex justify-between items-center py-2">
               <p class="font-medium">Solopgang</p>
               <p class="font-semibold">
-                {{ prayerTimes?.sunrise }}
+                {{ prayerTimes()?.sunrise }}
               </p>
             </div>
 
             <div class="flex justify-between items-center py-2">
               <p class="font-medium">Dhuhr</p>
               <p class="font-semibold">
-                {{ prayerTimes?.dhuhr }}
+                {{ prayerTimes()?.dhuhr }}
               </p>
             </div>
             <div class="flex justify-between items-center py-2">
               <p class="font-medium">Solnedgang</p>
               <p class="font-semibold">
-                {{ prayerTimes?.sunset }}
+                {{ prayerTimes()?.sunset }}
               </p>
             </div>
             <div class="flex justify-between items-center py-2">
               <p class="font-medium">Maghrib</p>
               <p class="font-semibold">
-                {{ prayerTimes?.maghrib }}
+                {{ prayerTimes()?.maghrib }}
               </p>
             </div>
           </div>

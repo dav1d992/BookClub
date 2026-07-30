@@ -6,6 +6,7 @@ import { BlogItemComponent } from "./pages/blogs/components/blog-item/blog-item.
 import { TimelineComponent } from "./pages/timeline/timeline.component";
 import { RouterModule, type Routes } from "@angular/router";
 import { AboutUsComponent } from "./pages/about-us/about-us.component";
+import { QuizComponent } from "./pages/quiz/quiz.component";
 
 export const routes: Routes = [
 	{
@@ -15,6 +16,10 @@ export const routes: Routes = [
 	{
 		path: "timeline",
 		component: TimelineComponent,
+	},
+	{
+		path: "quiz",
+		component: QuizComponent,
 	},
 	{
 		path: "weblogs",

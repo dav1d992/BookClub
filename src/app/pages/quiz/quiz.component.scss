@@ -1,0 +1,125 @@
+/* The router-outlet lives inside a flex container, so the host must be a
+   full-width block for the inner wrap's `margin: 0 auto` to center it,
+   matching how the other pages are centered. */
+:host {
+  display: block;
+  width: 100%;
+}
+
+.quiz-wrap {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 1.5rem 0 4rem;
+}
+
+/* Keep every question box the same width and a stable height so long
+   questions simply wrap onto the next line instead of resizing the card. */
+.question-card {
+  min-height: 8rem;
+}
+
+/* --- Option button states --- */
+.option-btn {
+  &.state-idle {
+    background-color: #d6d3d1; // stone-300
+    color: #1c1917; // stone-900
+  }
+
+  &.state-correct {
+    background-color: #16a34a; // green-600
+    color: #fff;
+    animation: quiz-pop 0.3s ease;
+  }
+
+  &.state-wrong {
+    background-color: #dc2626; // red-600
+    color: #fff;
+    animation: quiz-shake 0.4s ease;
+  }
+}
+
+:host-context(.dark) .option-btn.state-idle {
+  background-color: #1c1917; // stone-900
+  color: #f5f5f4; // stone-100
+}
+
+.option-btn.state-idle:hover:not(:disabled) {
+  filter: brightness(0.96);
+  transform: translateY(-1px);
+}
+
+/* --- Animations --- */
+.quiz-pop {
+  animation: quiz-pop 0.3s ease;
+}
+
+.quiz-bounce {
+  animation: quiz-bounce 1.6s ease-in-out infinite;
+}
+
+.quiz-fade {
+  animation: quiz-fade 0.25s ease;
+}
+
+@keyframes quiz-pop {
+  0% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes quiz-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-6px);
+  }
+  40% {
+    transform: translateX(6px);
+  }
+  60% {
+    transform: translateX(-4px);
+  }
+  80% {
+    transform: translateX(4px);
+  }
+}
+
+@keyframes quiz-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes quiz-fade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quiz-pop,
+  .quiz-bounce,
+  .quiz-fade,
+  .option-btn.state-correct,
+  .option-btn.state-wrong {
+    animation: none;
+  }
+}

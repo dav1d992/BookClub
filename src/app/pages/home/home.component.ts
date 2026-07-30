@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   private readonly http = inject(HttpClient);
   private readonly prayerTimesService = inject(PrayerTimesService);
   private readonly dateService = inject(DateService);
-  public prayerTimes: PrayerTimes | null = null;
+  public prayerTimes = signal<PrayerTimes | null>(null);
 
   public meetings = signal<Meeting[]>([
     {
@@ -62,7 +62,7 @@ export class HomeComponent implements OnInit {
   public fetchPrayerTimes(date: string): void {
     this.prayerTimesService.getPrayerTimes(date).subscribe(
       (response) => {
-        this.prayerTimes = response;
+        this.prayerTimes.set(response);
       },
       (error) => {
         console.error('Error fetching prayer times:', error);
