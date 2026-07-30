@@ -41,6 +41,7 @@ jobs:
           # Angular build output (browser files) -> see angular.json outputPath
           local-dir: ./dist/book-club/
           # IMPORTANT: this must be the document root of your subdomain on Hostinger.
-          # Adjust to match your file manager path. Everything under this folder that
-          # is NOT in local-dir will be DELETED, so make sure it is correct.
-          server-dir: ./public_html/02-subdomain-book-club/dist/
+          # The FTP login already lands INSIDE public_html, so the path is relative
+          # to that. Everything under this folder that is NOT in local-dir will be
+          # DELETED, so make sure it is correct.
+          server-dir: ./02-subdomain-book-club/dist/
