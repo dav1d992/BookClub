@@ -32,17 +32,27 @@ jobs:
       - name: Build (production)
         run: yarn build
 
+      # Deploy with lftp (robust with Hostinger; handles deep paths in one pass,
+      # unlike the FTP-Deploy-Action which timed out doing per-segment CWD/MKD).
+      - name: Install lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
       - name: Deploy to Hostinger via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          # Angular build output (browser files) -> see angular.json outputPath
-          local-dir: ./dist/book-club/
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
           # VERIFIED served document root (absolute path from the FTP account home).
           # NOTE: the account's `public_html` is a symlink to a DIFFERENT domain
-          # (dav1d992.com), so we must target the lokeytech.com folder explicitly.
+          # (dav1d992.com), so we target the lokeytech.com folder explicitly.
           # Confirmed by direct FTP upload -> https://bogklub.lokeytech.com/.
-          # Everything under this folder that is NOT in local-dir will be DELETED.
-          server-dir: /domains/lokeytech.com/public_html/02-subdomain-book-club/dist/book-club/
+          REMOTE_DIR: /domains/lokeytech.com/public_html/02-subdomain-book-club/dist/book-club/
+        run: |
+          lftp -c "
+            set ftp:ssl-allow no;
+            set net:timeout 20;
+            set net:max-retries 3;
+            set net:reconnect-interval-base 5;
+            open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" \"$FTP_SERVER\";
+            mirror -R --delete --verbose --parallel=2 ./dist/book-club/ \"$REMOTE_DIR\";
+          "
