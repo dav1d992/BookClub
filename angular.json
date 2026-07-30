@@ -26,7 +26,11 @@
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["src/mosque_icon.ico", "src/assets"],
+            "assets": [
+              "src/mosque_icon.ico",
+              "src/assets",
+              { "glob": ".htaccess", "input": "src", "output": "/" }
+            ],
             "styles": ["src/styles.scss"],
             "scripts": []
           },
