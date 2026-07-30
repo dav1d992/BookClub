@@ -40,9 +40,9 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           # Angular build output (browser files) -> see angular.json outputPath
           local-dir: ./dist/book-club/
-          # IMPORTANT: this is the subdomain's document root as shown in hPanel:
-          # /home/u208111771/domains/lokeytech.com/public_html/02-subdomain-book-club/dist/book-club
-          # The FTP account roots at the account home (/home/u208111771/), so the
-          # path is relative to that. Everything under this folder that is NOT in
-          # local-dir will be DELETED, so make sure it is correct.
-          server-dir: ./domains/lokeytech.com/public_html/02-subdomain-book-club/dist/book-club/
+          # IMPORTANT: the FTP account is jailed to the lokeytech.com folder
+          # (/home/u208111771/domains/lokeytech.com/), so the path is relative to
+          # that and must include public_html. The subdomain's document root is
+          # .../public_html/02-subdomain-book-club/dist/book-club. Everything under
+          # this folder that is NOT in local-dir will be DELETED.
+          server-dir: ./public_html/02-subdomain-book-club/dist/book-club/
