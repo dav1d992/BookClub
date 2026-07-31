@@ -5,7 +5,8 @@
     <div class="text-6xl mb-3 quiz-bounce">🧠</div>
     <h1 class="text-3xl sm:text-4xl font-bold mb-2">Videns-Quiz</h1>
     <p class="text-base sm:text-lg text-stone-700 dark:text-stone-300 mb-8">
-      Vælg et emne, vælg din sværhedsgrad, og kæmp mod uret for topscoren.
+      Vælg et emne, vælg sværhedsgrad eller lektion, og kæmp mod uret for
+      topscoren.
     </p>
 
     <div class="grid grid-cols-1 gap-4">
@@ -36,8 +37,9 @@
     </div>
 
     <p class="mt-8 text-xs text-stone-500 dark:text-stone-400">
-      Alle spørgsmål er baseret på <em>Kitab al-Irshad</em> (Sheikh al-Mufid) og
-      projektets tidslinje.
+      Spørgsmålene er baseret på <em>Kitab al-Irshad</em> (Sheikh al-Mufid) samt
+      <em>Lessons about Allah, Prophethood, Justice, Leadership (Imamate) and
+      Resurrection</em> (Ayatollah Makarem Shirazi).
     </p>
   </section>
   }
@@ -79,6 +81,56 @@
             <span
               class="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-stone-500 dark:text-stone-400 bg-stone-200 dark:bg-stone-800 px-2.5 py-1 rounded-full"
               >❓ {{ questionsPerRound }} spørgsmål</span
+            >
+          </div>
+          <span
+            class="text-2xl text-stone-400 self-center transition-transform duration-200 group-hover:translate-x-1"
+            >▶</span
+          >
+        </div>
+      </button>
+      }
+    </div>
+  </section>
+  }
+
+  <!-- ================= LESSON SCREEN (choose chapter) ================= -->
+  @if (gameState() === 'lesson' && pendingTopic(); as topic) {
+  <section class="text-center">
+    <button
+      type="button"
+      (click)="backToTopics()"
+      class="mb-4 text-sm text-stone-500 dark:text-stone-400 hover:underline"
+    >
+      ← Tilbage til emner
+    </button>
+
+    <div class="text-5xl mb-2">{{ topic.emoji }}</div>
+    <h1 class="text-2xl sm:text-3xl font-bold mb-1">{{ topic.title }}</h1>
+    <p class="text-base text-stone-700 dark:text-stone-300 mb-8">
+      Vælg en lektion (kapitel) — ingen sværhedsgrad.
+    </p>
+
+    <div class="grid grid-cols-1 gap-4">
+      @for (lesson of topic.lessons; track lesson.id) {
+      <button
+        type="button"
+        (click)="startLesson(lesson)"
+        class="topic-card group text-left bg-stone-300 dark:bg-stone-900 p-5 rounded-2xl shadow-lg transition-all duration-200 active:scale-[0.98] hover:-translate-y-1 hover:shadow-xl"
+      >
+        <div class="flex items-center gap-4">
+          <span
+            class="text-4xl shrink-0 transition-transform duration-200 group-hover:scale-110"
+            >{{ lesson.emoji }}</span
+          >
+          <div class="flex-1">
+            <h2 class="text-xl font-bold">{{ lesson.label }}</h2>
+            <p class="text-sm text-stone-600 dark:text-stone-400 mt-1">
+              {{ lesson.description }}
+            </p>
+            <span
+              class="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-stone-500 dark:text-stone-400 bg-stone-200 dark:bg-stone-800 px-2.5 py-1 rounded-full"
+              >❓ {{ lesson.questions.length }} spørgsmål</span
             >
           </div>
           <span
@@ -136,7 +188,7 @@
           [class.text-red-500]="timeLeft() <= 5"
           [class.text-stone-500]="timeLeft() > 5"
           [class.dark:text-stone-400]="timeLeft() > 5"
-          >⏱️ {{ timeLeft() }}s</span
+          >⏱️ {{ timeDisplay() }}</span
         >
       </div>
       <div
@@ -277,7 +329,7 @@
         (click)="changeDifficulty()"
         class="flex-1 bg-stone-300 dark:bg-stone-800 hover:bg-stone-400 dark:hover:bg-stone-700 font-bold py-3.5 rounded-xl shadow transition-colors active:scale-[0.98]"
       >
-        🎚️ Skift niveau
+        @if (activeMode() === 'lesson') { 📚 Skift lektion } @else { 🎚️ Skift niveau }
       </button>
       <button
         type="button"

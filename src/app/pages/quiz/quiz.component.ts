@@ -9,11 +9,19 @@ interface QuizQuestion {
 
 type Difficulty = 'let' | 'middel' | 'svaer';
 
-interface DifficultyMeta {
-  id: Difficulty;
+interface RoundMeta {
+  id: string;
   label: string;
   emoji: string;
   description: string;
+}
+
+interface DifficultyMeta extends RoundMeta {
+  id: Difficulty;
+}
+
+interface LessonMeta extends RoundMeta {
+  questions: QuizQuestion[];
 }
 
 interface QuizTopic {
@@ -21,7 +29,12 @@ interface QuizTopic {
   title: string;
   emoji: string;
   description: string;
-  pools: Record<Difficulty, QuizQuestion[]>;
+  /** How a round is chosen for this topic. Defaults to 'difficulty'. */
+  mode: 'difficulty' | 'lesson';
+  /** Present when mode === 'difficulty'. */
+  pools?: Record<Difficulty, QuizQuestion[]>;
+  /** Present when mode === 'lesson'. */
+  lessons?: LessonMeta[];
 }
 
 interface Rank {
@@ -30,10 +43,10 @@ interface Rank {
   minAccuracy: number;
 }
 
-type GameState = 'start' | 'difficulty' | 'playing' | 'result';
+type GameState = 'start' | 'difficulty' | 'lesson' | 'playing' | 'result';
 
 const QUESTIONS_PER_ROUND = 20;
-const TIME_PER_QUESTION = 20;
+const TIME_PER_QUESTION = 60; // 60 sekunder pr. spørgsmål
 const BASE_POINTS = 100;
 const MAX_LIVES = 3;
 
@@ -71,6 +84,7 @@ export class QuizComponent implements OnDestroy {
       emoji: '📖',
       description:
         "Test din viden om Imamernes (as) liv og de nøglebegivenheder fra Kitab al-Irshad (Sheikh al-Mufid), som også ligger til grund for tidslinjen.",
+      mode: 'difficulty',
       pools: {
         let: [
           {
@@ -1193,13 +1207,310 @@ export class QuizComponent implements OnDestroy {
         ],
       },
     },
+    {
+      id: 'makarem-lessons-about',
+      title:
+        'Lessons about Allah, Prophethood, Justice, Leadership (Imamate) and Resurrection',
+      emoji: '🕌',
+      description:
+        'Trosgrundlaget (Usul al-Din) af Ayatollah Makarem Shirazi. Vælg en lektion — 3 spørgsmål pr. lektion, ingen sværhedsgrad.',
+      mode: 'lesson',
+      lessons: [
+        {
+          id: 'lektion-1',
+          label: 'Lektion 1',
+          emoji: '1️⃣',
+          description: 'At søge Gud — nysgerrighed, taknemmelighed og intellekt.',
+          questions: [
+            {
+              question:
+                'Hvilke tre ting motiverer ifølge lektionen mennesket til at søge universets skaber?',
+              options: [
+                'Nysgerrighed, taknemmelighed og intellekt',
+                'Frygt, vane og tvang',
+                'Rigdom, magt og ære',
+                'Søvn, sult og tørst',
+              ],
+              answer: 'Nysgerrighed, taknemmelighed og intellekt',
+            },
+            {
+              question:
+                'I eksemplet med personen, der vågner fra koma og spørger "Hvor er jeg?", hvilken egenskab illustreres?',
+              options: [
+                'Nysgerrighed',
+                'Taknemmelighed',
+                'Frygt',
+                'Ligegyldighed',
+              ],
+              answer: 'Nysgerrighed',
+              fact: 'Der er en indbygget længsel i mennesket efter at vide, hvordan det hele startede, og hvor vi ender.',
+            },
+            {
+              question:
+                'I eksemplet med rejsen, hvor vejen deler sig, hvad motiverer vores rationale os til?',
+              options: [
+                'At undersøge mulighederne og vælge den mest rigtige vej',
+                'At stoppe rejsen helt',
+                'At følge den første vej blindt',
+                'At vende hjem uden at vælge',
+              ],
+              answer: 'At undersøge mulighederne og vælge den mest rigtige vej',
+              fact: 'Koranen 39:18: »… de, som lytter til ordet og følger det bedste af det. Det er dem, Allah har retledt, og det er dem, der besidder forstand.«',
+            },
+          ],
+        },
+        {
+          id: 'lektion-2',
+          label: 'Lektion 2',
+          emoji: '2️⃣',
+          description: 'Tegnene på Gud i vores dagligdag.',
+          questions: [
+            {
+              question:
+                'Ifølge lektionen, hvordan ser en gudstilbeder på hele verden?',
+              options: [
+                'Som en stor bog, hvor hvert atom er som ord',
+                'Som et resultat af rene tilfældigheder',
+                'Som noget overflødigt og betydningsløst',
+                'Som en illusion uden orden',
+              ],
+              answer: 'Som en stor bog, hvor hvert atom er som ord',
+            },
+            {
+              question:
+                'Hvilken virkning af troen på Gud fjerner angst og giver ro i enhver situation?',
+              options: [
+                'Fredfyldthed',
+                'Nysgerrighed',
+                'Rigdom',
+                'Ansvarsfølelse',
+              ],
+              answer: 'Fredfyldthed',
+              fact: 'Koranen 6:82: »De, der tror og ikke blander deres tro med uret — dem tilkommer tryghed, og de er retledte.«',
+            },
+            {
+              question:
+                'Hvad beskriver lektionen, at en troende med ansvarsfølelse har i sig?',
+              options: [
+                'En åndelig politimand, der ser alle handlinger',
+                'En dommer, der straffer andre',
+                'En stemme, der kun søger belønning',
+                'En følelse af ligegyldighed',
+              ],
+              answer: 'En åndelig politimand, der ser alle handlinger',
+              fact: 'Folk, der mangler tro, har tendens til at være mere egoistiske, fordi de mangler denne ansvarsfølelse.',
+            },
+          ],
+        },
+        {
+          id: 'lektion-3',
+          label: 'Lektion 3',
+          emoji: '3️⃣',
+          description: 'To måder at kende Gud på — den indre måde.',
+          questions: [
+            {
+              question:
+                'Hvad kaldes den måde, hvor man lytter i sit indre og hører monoteismens kald?',
+              options: [
+                'Den indre måde',
+                'Den ydre måde',
+                'Den videnskabelige måde',
+                'Den historiske måde',
+              ],
+              answer: 'Den indre måde',
+              fact: 'Den indre måde kaldes også den tætteste måde at kende Gud på.',
+            },
+            {
+              question:
+                'Hvornår bliver den indre stemme (kaldet på Gud) stærkest ifølge lektionen?',
+              options: [
+                'I katastrofer, hvor den materialistiske verden ikke betyder noget',
+                'Når man er rig og magtfuld',
+                'Når man sover',
+                'Når man er blandt mange mennesker',
+              ],
+              answer:
+                'I katastrofer, hvor den materialistiske verden ikke betyder noget',
+              fact: 'Selv Faraoen kaldte på Gud, lige inden floden lukkede over ham.',
+            },
+            {
+              question:
+                'Ifølge koranverset gør mennesker hvad, når de er i fare på et skib?',
+              options: [
+                'De påkalder Gud i oprigtig tro',
+                'De glemmer Gud helt',
+                'De tilbeder afguder',
+                'De giver op',
+              ],
+              answer: 'De påkalder Gud i oprigtig tro',
+              fact: 'Koranen 29:65: »Når de går om bord på et skib, påkalder de Allah i oprigtig tro. Men når Han redder dem i land, sætter de straks andre ved Hans side.«',
+            },
+          ],
+        },
+        {
+          id: 'lektion-4',
+          label: 'Lektion 4',
+          emoji: '4️⃣',
+          description: 'Svar på et vigtigt spørgsmål — fitrah.',
+          questions: [
+            {
+              question:
+                'Hvad kaldes den indre stemme, der findes i alle mennesker gennem al tid?',
+              options: ['Fitrah', 'Horizons', 'Souls', 'Furqan'],
+              answer: 'Fitrah',
+            },
+            {
+              question:
+                'Hvilke fire sanser nævner nogle psykologer, at alle menneskesjæle har?',
+              options: [
+                'Viden, godhed, smukhed og tro',
+                'Syn, hørelse, smag og lugt',
+                'Frygt, håb, vrede og glæde',
+                'Sult, tørst, søvn og smerte',
+              ],
+              answer: 'Viden, godhed, smukhed og tro',
+            },
+            {
+              question:
+                'Hvad indrømmer ikke-troende ifølge lektionen, men kalder »naturen« i stedet for Gud?',
+              options: [
+                'Guds eksistens',
+                'At de tager fejl',
+                'At videnskab er nytteløs',
+                'At fitrah ikke findes',
+              ],
+              answer: 'Guds eksistens',
+              fact: 'Koranen 50:16: »Vi har skabt mennesket, og Vi ved, hvad hans sjæl hvisker til ham. Vi er ham nærmere end hans halspulsåre.«',
+            },
+          ],
+        },
+        {
+          id: 'lektion-5',
+          label: 'Lektion 5',
+          emoji: '5️⃣',
+          description: 'En sand historie — ministeren og Faraoen.',
+          questions: [
+            {
+              question:
+                'Hvad indså den magtfulde og arrogante minister, da han endte i fængsel?',
+              options: [
+                'At mennesket er som en tegning på et flag, styret af vinden',
+                'At han selv var en gud',
+                'At videnskab er ligegyldig',
+                'At rigdom er alt',
+              ],
+              answer:
+                'At mennesket er som en tegning på et flag, styret af vinden',
+            },
+            {
+              question: 'Hvad viser den sande historie om ministeren?',
+              options: [
+                'At Gud med ét kan fjerne alle materialistiske goder',
+                'At magt varer evigt',
+                'At arrogance belønnes',
+                'At fængsel gør folk rige',
+              ],
+              answer: 'At Gud med ét kan fjerne alle materialistiske goder',
+            },
+            {
+              question:
+                'Hvem henviser den sande histories koranvers til — han troede på Gud, da han var ved at drukne?',
+              options: ['Faraoen', 'Ministeren', 'Den lærde', 'En konge'],
+              answer: 'Faraoen',
+              fact: 'Koranen 10:90: »… indtil, da han var ved at drukne, sagde han: Jeg tror, at der ikke er nogen gud undtagen Ham, som Israels børn tror på, og jeg er blandt de underkastede.«',
+            },
+          ],
+        },
+        {
+          id: 'lektion-6',
+          label: 'Lektion 6',
+          emoji: '6️⃣',
+          description: 'Den anden måde at kende Gud på — den ydre måde.',
+          questions: [
+            {
+              question:
+                'Hvad kaldes måden, hvor man ser på verdens orden og lovmæssighed for at kende Gud?',
+              options: [
+                'Den ydre måde',
+                'Den indre måde',
+                'Fitrah-måden',
+                'Den skjulte måde',
+              ],
+              answer: 'Den ydre måde',
+            },
+            {
+              question:
+                'Hvilket dagligdags eksempel bruges til at vise, at orden kræver en skaber med viden?',
+              options: [
+                'Et ur, man finder, må være lavet af en person',
+                'En sten, der falder ned ad bakke',
+                'En sky, der driver forbi',
+                'En bølge på havet',
+              ],
+              answer: 'Et ur, man finder, må være lavet af en person',
+            },
+            {
+              question: 'Hvad betyder "horizons" i koranverset 41:53?',
+              options: [
+                'Guds tegn i den ydre verden (naturen, universet, skabelsen)',
+                'Guds tegn inde i mennesket',
+                'Menneskets samvittighed',
+                'De troendes bønner',
+              ],
+              answer:
+                'Guds tegn i den ydre verden (naturen, universet, skabelsen)',
+              fact: 'Koranen 41:53: »Vi vil vise dem Vore tegn i horisonterne og i dem selv, indtil det bliver klart for dem, at det er sandheden.« — »Souls« er Guds tegn inde i mennesket.',
+            },
+          ],
+        },
+        {
+          id: 'lektion-7',
+          label: 'Lektion 7',
+          emoji: '7️⃣',
+          description: 'Eksempler fra skabelsen — hjernen.',
+          questions: [
+            {
+              question:
+                'Hvilket organ beskrives i lektionen som kroppens kontrolcenter?',
+              options: ['Hjernen', 'Hjertet', 'Lungerne', 'Nyrerne'],
+              answer: 'Hjernen',
+            },
+            {
+              question:
+                'Hvad har Gud ifølge lektionen skabt for at beskytte hjernen mod stød og uheld?',
+              options: [
+                'Kraniet samt hjernehinde og hjernevæske',
+                'Ribbenene',
+                'Musklerne i nakken',
+                'Huden på hovedet',
+              ],
+              answer: 'Kraniet samt hjernehinde og hjernevæske',
+            },
+            {
+              question:
+                'Hvad opfordrer koranverset mennesket til at reflektere over i lektionen om skabelsen?',
+              options: [
+                'Tegnene på Gud i mennesket selv',
+                'Stjernerne på himlen',
+                'Havets dybder',
+                'Bjergenes højde',
+              ],
+              answer: 'Tegnene på Gud i mennesket selv',
+              fact: 'Koranen 51:21: »Og i jer selv. Vil I da ikke se?«',
+            },
+          ],
+        },
+      ],
+    },
   ];
 
   // --- Game state signals ---
   public readonly gameState = signal<GameState>('start');
   public readonly activeTopic = signal<QuizTopic | null>(null);
   public readonly pendingTopic = signal<QuizTopic | null>(null);
-  public readonly activeDifficulty = signal<DifficultyMeta | null>(null);
+  public readonly activeDifficulty = signal<RoundMeta | null>(null);
+  public readonly activeMode = signal<'difficulty' | 'lesson'>('difficulty');
+  public readonly activeLesson = signal<LessonMeta | null>(null);
   public readonly roundQuestions = signal<QuizQuestion[]>([]);
   public readonly currentIndex = signal(0);
   public readonly selectedAnswer = signal<string | null>(null);
@@ -1244,6 +1555,13 @@ export class QuizComponent implements OnDestroy {
     Math.min(1 + Math.floor(this.streak() / 3) * 0.5, 3)
   );
 
+  public readonly timeDisplay = computed(() => {
+    const total = this.timeLeft();
+    const minutes = Math.floor(total / 60);
+    const seconds = total % 60;
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  });
+
   public readonly rank = computed<Rank>(() => {
     const acc = this.accuracy();
     return (
@@ -1263,7 +1581,7 @@ export class QuizComponent implements OnDestroy {
   // --- Navigation actions ---
   public selectTopic(topic: QuizTopic): void {
     this.pendingTopic.set(topic);
-    this.gameState.set('difficulty');
+    this.gameState.set(topic.mode === 'lesson' ? 'lesson' : 'difficulty');
   }
 
   public backToTopics(): void {
@@ -1272,16 +1590,35 @@ export class QuizComponent implements OnDestroy {
   }
 
   public poolSize(difficulty: Difficulty): number {
-    return this.pendingTopic()?.pools[difficulty].length ?? 0;
+    return this.pendingTopic()?.pools?.[difficulty].length ?? 0;
   }
 
   public startRound(difficulty: DifficultyMeta): void {
     const topic = this.pendingTopic();
+    if (!topic || !topic.pools) {
+      return;
+    }
+    this.activeMode.set('difficulty');
+    this.activeLesson.set(null);
+    this.beginRound(topic, difficulty, topic.pools[difficulty.id]);
+  }
+
+  public startLesson(lesson: LessonMeta): void {
+    const topic = this.pendingTopic();
     if (!topic) {
       return;
     }
+    this.activeMode.set('lesson');
+    this.activeLesson.set(lesson);
+    const { questions, ...meta } = lesson;
+    this.beginRound(topic, meta, questions);
+  }
 
-    const pool = topic.pools[difficulty.id];
+  private beginRound(
+    topic: QuizTopic,
+    meta: RoundMeta,
+    pool: QuizQuestion[]
+  ): void {
     const count = Math.min(QUESTIONS_PER_ROUND, pool.length);
     const shuffled = this.shuffle(pool).slice(0, count);
     const prepared = shuffled.map((q) => ({
@@ -1290,7 +1627,7 @@ export class QuizComponent implements OnDestroy {
     }));
 
     this.activeTopic.set(topic);
-    this.activeDifficulty.set(difficulty);
+    this.activeDifficulty.set(meta);
     this.roundQuestions.set(prepared);
     this.currentIndex.set(0);
     this.score.set(0);
@@ -1323,7 +1660,7 @@ export class QuizComponent implements OnDestroy {
       this.bestStreak.set(Math.max(this.bestStreak(), newStreak));
       this.correctCount.update((c) => c + 1);
 
-      const speedBonus = this.timeLeft() * 5;
+      const speedBonus = Math.min(this.timeLeft(), 20) * 5;
       const streakBonus = Math.min(newStreak, 5) * 20;
       const gain = Math.round(
         (BASE_POINTS + speedBonus + streakBonus) * this.comboMultiplier()
@@ -1364,28 +1701,42 @@ export class QuizComponent implements OnDestroy {
     this.activeTopic.set(null);
     this.pendingTopic.set(null);
     this.activeDifficulty.set(null);
+    this.activeLesson.set(null);
   }
 
   public replay(): void {
     const topic = this.activeTopic();
-    const difficulty = this.activeDifficulty();
-    if (topic && difficulty) {
-      this.pendingTopic.set(topic);
-      this.startRound(difficulty);
-    } else {
+    if (!topic) {
       this.restart();
+      return;
     }
+    this.pendingTopic.set(topic);
+
+    if (this.activeMode() === 'lesson') {
+      const lesson = this.activeLesson();
+      if (lesson) {
+        this.startLesson(lesson);
+        return;
+      }
+    } else {
+      const meta = this.activeDifficulty();
+      if (meta && topic.pools) {
+        this.beginRound(topic, meta, topic.pools[meta.id as Difficulty]);
+        return;
+      }
+    }
+    this.restart();
   }
 
   public changeDifficulty(): void {
     this.stopTimer();
     const topic = this.activeTopic();
-    if (topic) {
-      this.pendingTopic.set(topic);
-      this.gameState.set('difficulty');
-    } else {
+    if (!topic) {
       this.restart();
+      return;
     }
+    this.pendingTopic.set(topic);
+    this.gameState.set(this.activeMode() === 'lesson' ? 'lesson' : 'difficulty');
   }
 
   public optionState(option: string): 'correct' | 'wrong' | 'idle' {
